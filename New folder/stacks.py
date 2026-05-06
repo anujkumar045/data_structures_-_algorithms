@@ -128,37 +128,99 @@
 # print(res1)
 
 # 4th May 2026
-class Stack():
-    # def __init__(self):
-    #     self.stack=[]
+# class Stack():
+#     def __init__(self):
+#         self.stack=[]
 
-# obj=Stack()
-# print(obj.stack)
+# # obj=Stack()
+# # print(obj.stack)
 
-    def push(self,element):
-        # print(self.stack)
-        if self.stack is not None: 
-            self.stack.append(element) 
-        else:
-            print("Stack is not initialized ")
+#     def push(self,element):
+#         # print(self.stack)
+#         if self.stack is not None: 
+#             self.stack.append(element) 
+#         else:
+#             print("Stack is not initialized ")
 
+# # obj=Stack()
+# # print(obj.stack)
+# # item=int(input("Enter a value : "))
+# # obj.push(item)
+# # print(obj.push(item))
+        
+#     def pop(self):  
+#         if len(self.stack)>0:
+#             return self.stack.pop()
+#         else:
+#             # raise IndexError("Stack is empty")
+#             raise Exception("Stack is empty")
+    
+# # obj=Stack()
+# # print(obj.stack)
+# # print(obj.pop())
+
+#     def top(self):
+#         if len(self.stack)>0:
+#             return self.stack[-1]
+#         else:
+#             print("Stack is empty")
+
+#     def isEmpty(self):
+#         if len(self.stack)==0:
+#             print(True)
+#         else:
+#             print(False)
+        
 # obj=Stack()
 # print(obj.stack)
 # item=int(input("Enter a value : "))
 # obj.push(item)
-# print(obj.push(item))
-        
-    # def pop(self):  
-    #     if len(self.stack)>0:
-    #         return self.stack.pop()
-    #     else:
-    #         # raise IndexError("Stack is empty")
-    #         raise Exception("Stack is empty")
-    
-# obj=Stack()
-# print(obj.stack)
+# print(obj.top())
+# obj.isEmpty()
 # print(obj.pop())
+# obj.isEmpty()
 
-obj=Stack.__new__(Stack)
-print(id(obj))
-print(id(Stack))
+
+# obj=Stack.__new__(Stack)
+# print(id(obj))
+# print(id(Stack))
+
+class Stack():
+    def __init__(self,cap):
+        self.stack=[]
+        self.c=cap
+
+    def push(self,element):
+        if self.stack is not None:
+            if len(self.stack)<=self.c:
+                self.stack.append(element)
+            else:
+                print("Stack is full")
+
+    def pop(self):
+        if len(self.stack)>0:
+            return self.stack.pop()
+        else:
+            print("Stack is empty")
+        
+    def top(self):
+        if len(self.stack)>0:
+            return self.stack[-1]
+        else:
+            print("Stack is empty")
+
+    def isFull(self):
+        if len(self.stack)==self.c:
+            print(True)
+        else:
+            print(False)
+
+capacity=int(input("Enter stack capacity : "))
+obj=Stack(capacity)
+print(obj.stack)
+item=int(input("Enter a value : "))
+obj.push(item)
+print(obj.stack)
+print(obj.pop())
+obj.top()
+obj.isFull()  
